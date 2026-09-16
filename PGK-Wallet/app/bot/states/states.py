@@ -1,0 +1,15 @@
+"""
+PGK Wallet - conversation state constants.
+"""
+
+# Admin login
+ADMIN_AWAITING_PASSWORD = 1
+
+# Invoice creation
+INVOICE_AMOUNT, INVOICE_ASSET, INVOICE_NETWORK, INVOICE_WALLET, INVOICE_EXPIRATION, INVOICE_DESCRIPTION = range(10, 16)
+
+# Wallet creation
+WALLET_ASSET, WALLET_NETWORK, WALLET_ADDRESS, WALLET_LABEL = range(20, 24)
+
+# Fiat receipt upload
+FIAT_AWAITING_RECEIPT = 30
