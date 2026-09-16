@@ -1,157 +1,164 @@
+<div align="center">
+
 # 💜 PGK Wallet
 
 ### 🔐 Self-Hosted Telegram Cryptocurrency Wallet
 
-PGK Wallet یک سیستم کیف پول رمزارزی مبتنی بر **Telegram Bot** است که با هدف ایجاد یک تجربه ساده، سریع و قابل توسعه برای مدیریت کیف پول، پرداخت، دریافت وجه و مدیریت تراکنش‌ها طراحی شده است.
+**A modular cryptocurrency wallet system built for Telegram**
 
-این پروژه به‌صورت **Self-Hosted** طراحی شده؛ یعنی هر شخص می‌تواند سورس پروژه را دریافت کرده، تنظیمات خودش را انجام دهد و نسخه مستقل خودش از PGK Wallet را اجرا کند.
+<br>
+
+[![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge\&logo=python\&logoColor=white)](https://www.python.org/)
+[![Telegram](https://img.shields.io/badge/Telegram-Bot-26A5E4?style=for-the-badge\&logo=telegram\&logoColor=white)](https://telegram.org/)
+[![Self Hosted](https://img.shields.io/badge/Self--Hosted-Yes-2EA44F?style=for-the-badge)](https://github.com/)
+[![License](https://img.shields.io/badge/License-See%20Repository-6E40C9?style=for-the-badge)](LICENSE)
+
+<br>
+
+**Private • Self-Hosted • Modular • Extensible**
+
+<br>
+
+### 🌐 Select Your Language
+
+🇮🇷 **[فارسی](#-فارسی)**   •  
+🇬🇧 **[English](#-english)**   •  
+🇷🇺 **[Русский](#-русский)**   •  
+🇨🇳 **[中文](#-中文)**
+
+</div>
 
 ---
 
-## 🌐 Languages
+# 🇮🇷 فارسی
 
-🇮🇷 فارسی • 🇬🇧 English • 🇷🇺 Русский • 🇨🇳 中文
+## 💜 PGK Wallet چیست؟
+
+**PGK Wallet** یک سیستم کیف پول رمزارزی مبتنی بر **Telegram Bot** است که با هدف ایجاد یک زیرساخت ساده، ماژولار، قابل توسعه و **Self-Hosted** برای مدیریت کیف پول و پرداخت‌های رمزارزی ساخته شده است.
+
+هدف پروژه این است که هر توسعه‌دهنده بتواند سورس کد را دریافت کند، تنظیمات خودش را وارد کند و **نسخه مستقل PGK Wallet خودش** را روی سرور یا سیستم شخصی اجرا کند.
+
+> ⚠️ PGK Wallet یک پروژه نرم‌افزاری Self-Hosted است و استفاده از آن با دارایی واقعی نیازمند بررسی کامل کد، شبکه، کلیدهای خصوصی و تنظیمات امنیتی است.
 
 ---
 
-# ✨ ویژگی‌ها
+## ✨ امکانات اصلی
 
-### 👤 User Wallet
+### 👤 سیستم کاربران
 
-هر کاربر می‌تواند از طریق ربات برای خود یک کیف پول ایجاد و مدیریت کند.
+PGK Wallet برای مدیریت کاربران Telegram طراحی شده است.
 
-امکانات اصلی:
-
-* 💼 ایجاد و مدیریت Wallet
+* 👤 مدیریت حساب کاربری
+* 🆔 اتصال حساب به Telegram ID
+* 💼 مدیریت Wallet
 * 💰 مشاهده موجودی
-* 📥 دریافت رمزارز
-* 📤 ارسال رمزارز
-* 🔗 دریافت آدرس کیف پول
-* 🧾 ایجاد درخواست پرداخت
-* 📊 مشاهده تراکنش‌ها
-* 🔔 دریافت اعلان تراکنش
-* 🔐 مدیریت امن اطلاعات حساس
+* 📊 مشاهده فعالیت‌ها
+* 🔔 دریافت اعلان‌ها
 
 ---
 
-# 💳 Payment System
+## 💼 Wallet
 
-PGK Wallet فقط یک نمایش‌دهنده موجودی نیست؛ ساختار پروژه برای ایجاد جریان پرداخت داخل Telegram طراحی شده است.
+بخش **Wallet** هسته اصلی پروژه است.
 
-### جریان پرداخت
+ساختار کلی:
+
+```text
+                 💼 WALLET
+                    │
+       ┌────────────┼────────────┐
+       ▼            ▼            ▼
+    💰 Balance    📥 Receive    📤 Send
+       │            │            │
+       └────────────┼────────────┘
+                    ▼
+              📊 Transactions
+```
+
+### 💰 Balance
+
+کاربر می‌تواند موجودی کیف پول خود را مشاهده کند.
+
+### 📥 Receive
+
+برای دریافت دارایی، کاربر می‌تواند اطلاعات موردنیاز کیف پول خود را دریافت کند.
+
+### 📤 Send
+
+سیستم می‌تواند فرآیند ارسال دارایی را مدیریت کند؛ اجرای واقعی تراکنش به شبکه، ارز و تنظیمات مربوط به Instance بستگی دارد.
+
+### 📊 Transactions
+
+تراکنش‌های مرتبط با کیف پول قابل مدیریت و پیگیری هستند.
+
+---
+
+## 💳 Payment System
+
+سیستم پرداخت برای ایجاد یک جریان پرداخت ساختاریافته طراحی شده است.
 
 ```text
 👤 Customer
-     │
-     ▼
-🤖 PGK Wallet Bot
-     │
-     ▼
-💳 Create Payment
-     │
-     ▼
-🔗 Payment Request
-     │
-     ▼
+      │
+      ▼
+🤖 Telegram Bot
+      │
+      ▼
+🧾 Create Invoice
+      │
+      ▼
+💳 Payment Request
+      │
+      ▼
 💰 Blockchain Transaction
-     │
-     ▼
-✅ Payment Verification
-     │
-     ▼
+      │
+      ▼
+🔎 Verification
+      │
+      ▼
+✅ Payment Confirmed
+      │
+      ▼
 🔔 Notification
 ```
 
-کاربر می‌تواند یک درخواست پرداخت ایجاد کند و اطلاعات موردنیاز پرداخت را دریافت کند.
-
----
-
-# 💰 Wallet
-
-بخش Wallet هسته اصلی سیستم است.
-
-```text
-┌─────────────────────────────┐
-│        💜 PGK WALLET        │
-├─────────────────────────────┤
-│                             │
-│  💰 Balance                 │
-│                             │
-│  📥 Receive                 │
-│  📤 Send                    │
-│  🔗 Wallet Address          │
-│  📊 Transactions            │
-│                             │
-└─────────────────────────────┘
-```
-
-### Receive
-
-کاربر می‌تواند آدرس دریافت کیف پول خود را مشاهده و برای شخص دیگری ارسال کند.
-
-### Send
-
-کاربر می‌تواند در صورت پشتیبانی شبکه و تنظیمات پروژه، تراکنش ارسال ایجاد کند.
-
-### Transactions
-
-تاریخچه تراکنش‌ها برای بررسی فعالیت‌های کیف پول در دسترس است.
-
----
-
-# 🧾 Invoice & Payment
-
-سیستم Invoice برای ایجاد درخواست‌های پرداخت طراحی شده است.
-
-نمونه جریان:
-
-```text
-Create Invoice
-      ↓
-Select Amount
-      ↓
-Select Currency / Network
-      ↓
-Generate Payment Request
-      ↓
-Customer Pays
-      ↓
-Verify Transaction
-      ↓
-Payment Confirmed ✅
-```
-
-این ساختار می‌تواند برای موارد مختلفی مانند:
+این معماری می‌تواند برای مواردی مانند:
 
 * فروش محصولات
 * خدمات آنلاین
-* پرداخت داخل Telegram
 * دریافت هزینه
 * Donation
-* پرداخت‌های شخصی
+* پرداخت‌های داخل Telegram
+* سیستم‌های تجاری
 
-استفاده شود.
+توسعه داده شود.
 
 ---
 
-# 👑 Admin Dashboard
+## 🧾 Invoice
 
-PGK Wallet دارای بخش مدیریت برای صاحب ربات است.
+Invoice برای ایجاد یک درخواست پرداخت مشخص استفاده می‌شود.
 
-مدیریت می‌تواند شامل مواردی مانند:
+نمونه ساختار:
 
-* 👥 کاربران
-* 💰 کیف پول‌ها
-* 💳 پرداخت‌ها
-* 🧾 Invoiceها
-* 📊 آمار
-* 🔔 اعلان‌ها
-* ⚙️ تنظیمات
-* 🛠 مدیریت سیستم
+```text
+┌─────────────────────────────┐
+│        🧾 INVOICE           │
+├─────────────────────────────┤
+│ Amount:      25 USDT        │
+│ Status:      Pending        │
+│ Network:     Selected       │
+│ Payment:     Required       │
+└─────────────────────────────┘
+```
 
-باشد.
+پس از پرداخت، سیستم می‌تواند وضعیت Invoice را بررسی و به‌روزرسانی کند.
 
-ساختار کلی:
+---
+
+## 👑 Admin Panel
+
+PGK Wallet دارای ساختار مدیریتی برای کنترل Instance است.
 
 ```text
 👑 ADMIN PANEL
@@ -162,62 +169,54 @@ PGK Wallet دارای بخش مدیریت برای صاحب ربات است.
 ├── 🧾 Invoices
 ├── 📊 Statistics
 ├── 🔔 Notifications
+├── 🗄 Database
 └── ⚙️ Settings
 ```
 
+پنل مدیریت می‌تواند برای مشاهده و مدیریت اطلاعات اصلی سیستم استفاده شود.
+
 ---
 
-# 🔔 Notifications
+## 🔔 Notification System
 
 سیستم اعلان برای اطلاع‌رسانی رویدادهای مهم طراحی شده است.
 
 برای مثال:
 
 ```text
-💰 New Payment
+💰 Payment Received
 
 Amount: 25 USDT
 Status: Confirmed ✅
 
 Transaction:
-0x............
-```
-
-یا:
-
-```text
-📥 Incoming Transaction
-
-Amount: 0.05 BTC
-Status: Confirmed ✅
+xxxxxxxxxxxxxxxx
 ```
 
 ---
 
-# 🗄 Database
+## 🗄 Database
 
-PGK Wallet برای نگهداری اطلاعات موردنیاز سیستم از Database استفاده می‌کند.
+اطلاعات موردنیاز سیستم در Database مدیریت می‌شوند.
 
-اطلاعاتی مانند:
+از جمله:
 
-* User information
-* Wallet information
-* Transactions
-* Payments
-* Invoices
-* Bot settings
-
-می‌توانند در Database مدیریت شوند.
+* 👤 Users
+* 💼 Wallets
+* 💳 Payments
+* 🧾 Invoices
+* 📊 Transactions
+* ⚙️ Settings
 
 ---
 
-# 🔐 Security
+## 🔐 Security
 
-امنیت یکی از بخش‌های مهم پروژه است.
+امنیت برای یک Wallet بسیار مهم است.
 
-پروژه برای استفاده شخصی و Self-Hosted طراحی شده و مسئولیت محافظت از اطلاعات حساس بر عهده صاحب Instance است.
+اطلاعات حساس نباید در Repository عمومی قرار بگیرند.
 
-### ⚠️ هرگز این اطلاعات را در GitHub قرار ندهید:
+### ❌ هرگز این موارد را روی GitHub قرار ندهید:
 
 ```text
 BOT_TOKEN
@@ -229,55 +228,70 @@ DATABASE_PASSWORD
 ADMIN_SECRET
 ```
 
-اطلاعات حساس باید در Environment Variables یا Secret Management نگهداری شوند.
+اطلاعات حساس باید از طریق Environment Variables یا روش امن مشابه مدیریت شوند.
 
 نمونه:
 
 ```env
 BOT_TOKEN=YOUR_BOT_TOKEN
-DATABASE_URL=YOUR_DATABASE_URL
 ADMIN_ID=YOUR_TELEGRAM_ID
+DATABASE_URL=YOUR_DATABASE_URL
 ```
 
 ---
 
-# 🏠 Self-Hosted
+## 🏠 Self-Hosted Architecture
 
-یکی از اهداف اصلی PGK Wallet این است که هر شخص بتواند Instance مستقل خودش را داشته باشد.
+یکی از ویژگی‌های اصلی PGK Wallet امکان اجرای مستقل آن است.
 
 ```text
-                PGK Wallet
-                     │
-        ┌────────────┼────────────┐
-        ▼            ▼            ▼
-     Server A     Server B     Server C
-        │            │            │
-     Bot A        Bot B        Bot C
-        │            │            │
-    Database A   Database B   Database C
+                    PGK WALLET
+                        │
+          ┌─────────────┼─────────────┐
+          ▼             ▼             ▼
+       Server A      Server B      Server C
+          │             │             │
+        Bot A         Bot B         Bot C
+          │             │             │
+       Database A   Database B   Database C
 ```
 
-هر Instance می‌تواند تنظیمات، Bot Token و Database مستقل خودش را داشته باشد.
+هر شخص می‌تواند Instance خودش را داشته باشد.
 
 ---
 
-# 🛠 Technology
+## 🧩 Architecture
 
-پروژه بر پایه تکنولوژی‌های زیر توسعه داده شده است:
+معماری کلی پروژه به‌صورت ماژولار طراحی شده است:
 
-* 🐍 Python
-* 🤖 Telegram Bot API
-* 🗄 Database
-* 🔐 Security Services
-* 💳 Payment Services
-* 🧾 Invoice System
-* ⚙️ Modular Architecture
+```text
+                    ┌──────────────┐
+                    │   Telegram   │
+                    │     Bot      │
+                    └──────┬───────┘
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │   Handlers   │
+                    └──────┬───────┘
+                           │
+             ┌─────────────┼─────────────┐
+             ▼             ▼             ▼
+       ┌──────────┐  ┌──────────┐  ┌──────────┐
+       │  Wallet  │  │ Payment  │  │ Invoice  │
+       │ Service  │  │ Service  │  │ Service  │
+       └────┬─────┘  └────┬─────┘  └────┬─────┘
+            │             │             │
+            └─────────────┼─────────────┘
+                          ▼
+                   ┌──────────────┐
+                   │   Database   │
+                   └──────────────┘
+```
 
 ---
 
-# 📁 Project Structure
-
-ساختار کلی پروژه:
+## 📁 ساختار پروژه
 
 ```text
 PGK-Wallet/
@@ -310,24 +324,37 @@ PGK-Wallet/
 
 ---
 
-# 🚀 Installation
+## 🛠 تکنولوژی‌ها
 
-### 1. Clone
+* 🐍 Python
+* 🤖 Telegram Bot API
+* 🗄 Database
+* 💼 Wallet Services
+* 💳 Payment Services
+* 🧾 Invoice Services
+* 🔐 Security Services
+* 🔔 Notification Services
+
+---
+
+## 🚀 نصب
+
+### 1. دریافت پروژه
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/PGK-Wallet.git
 cd PGK-Wallet
 ```
 
-### 2. Install dependencies
+### 2. نصب وابستگی‌ها
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Configure Environment
+### 3. تنظیم Environment
 
-فایل `.env` را بر اساس `.env.example` ایجاد کنید.
+فایل `.env` را بر اساس `.env.example` ایجاد و تنظیم کنید.
 
 ```env
 BOT_TOKEN=YOUR_BOT_TOKEN
@@ -335,7 +362,7 @@ ADMIN_ID=YOUR_TELEGRAM_ID
 DATABASE_URL=YOUR_DATABASE_URL
 ```
 
-### 4. Run
+### 4. اجرای پروژه
 
 ```bash
 python main.py
@@ -343,62 +370,26 @@ python main.py
 
 ---
 
-# ⚙️ Configuration
-
-قبل از اجرای ربات، تنظیمات موردنیاز را در Environment Variables وارد کنید.
-
-هر Instance باید از Credentialهای خودش استفاده کند.
-
----
-
-# 🧪 Development
-
-برای توسعه پروژه:
-
-```bash
-git clone https://github.com/YOUR_USERNAME/PGK-Wallet.git
-cd PGK-Wallet
-
-python -m venv venv
-```
-
-فعال‌سازی محیط مجازی در Windows:
-
-```powershell
-venv\Scripts\activate
-```
-
-سپس:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-# 📌 Roadmap
-
-برنامه توسعه پروژه می‌تواند شامل موارد زیر باشد:
+## 🗺 Roadmap
 
 * [ ] Multi-Currency Wallet
 * [ ] Multi-Network Support
-* [ ] Advanced Payment System
-* [ ] QR Code Payments
+* [ ] QR Payments
 * [ ] Payment Links
-* [ ] Advanced Admin Dashboard
-* [ ] Enhanced Security
-* [ ] Automatic Blockchain Monitoring
-* [ ] Detailed Analytics
+* [ ] Advanced Invoice System
+* [ ] Advanced Admin Panel
+* [ ] Blockchain Monitoring
+* [ ] Advanced Analytics
 * [ ] Docker Deployment
 * [ ] Web Dashboard
-* [ ] API
+* [ ] Public API
 * [ ] More Languages
 
 ---
 
-# 🤝 Contributing
+## 🤝 مشارکت
 
-اگر می‌خواهید در توسعه پروژه مشارکت کنید:
+Pull Request و پیشنهادهای فنی برای توسعه پروژه قابل بررسی هستند.
 
 ```bash
 git fork
@@ -406,138 +397,691 @@ git clone
 git checkout -b feature/your-feature
 ```
 
-تغییرات خود را انجام دهید و سپس Pull Request ارسال کنید.
+پس از اعمال تغییرات، Pull Request ایجاد کنید.
 
 ---
 
-# ⚠️ Disclaimer
+## ⚠️ هشدار امنیتی
 
-PGK Wallet یک پروژه نرم‌افزاری Self-Hosted است.
+قبل از استفاده از PGK Wallet با دارایی واقعی، تمام بخش‌های مربوط به:
 
-قبل از استفاده با دارایی واقعی، کد، تنظیمات امنیتی، وابستگی‌ها، مدیریت کلیدها و نحوه اتصال به شبکه‌های بلاکچین را به‌طور کامل بررسی و آزمایش کنید.
+* Private Key
+* Seed
+* Transaction Signing
+* Blockchain RPC
+* Network Configuration
+* Database Security
+* Access Control
 
-**هیچ‌گاه Seed Phrase یا Private Key را در GitHub، Telegram، فایل‌های عمومی یا Repository عمومی قرار ندهید.**
+را به‌صورت کامل بررسی و در محیط آزمایشی تست کنید.
+
+**هیچ Seed Phrase یا Private Key را در GitHub یا Telegram ارسال نکنید.**
 
 ---
 
-# 📄 License
-
-This project is distributed under the license specified in this repository.
-
----
-
-# 🇮🇷 فارسی
-
-## PGK Wallet چیست؟
-
-PGK Wallet یک ربات کیف پول رمزارزی برای Telegram است که برای مدیریت کیف پول، دریافت و ارسال دارایی، پرداخت، Invoice و مدیریت تراکنش‌ها طراحی شده است.
-
-معماری پروژه به شکل **Self-Hosted** است؛ بنابراین کاربران می‌توانند سورس پروژه را دریافت کرده و Instance مستقل خودشان را راه‌اندازی کنند.
-
-### امکانات
-
-* 💼 ساخت و مدیریت کیف پول
-* 💰 مشاهده موجودی
-* 📥 دریافت
-* 📤 ارسال
-* 🔗 آدرس کیف پول
-* 💳 پرداخت
-* 🧾 Invoice
-* 📊 تراکنش‌ها
-* 🔔 اعلان‌ها
-* 👑 پنل مدیریت
-* 🗄 Database
-* 🔐 قابلیت‌های امنیتی
-* 🌐 قابلیت توسعه برای چند زبان و چند شبکه
+[⬆ بازگشت به انتخاب زبان](#-select-your-language)
 
 ---
 
 # 🇬🇧 English
 
-## What is PGK Wallet?
+## 💜 What is PGK Wallet?
 
-PGK Wallet is a Telegram-based cryptocurrency wallet bot designed for wallet management, receiving and sending assets, payments, invoices, and transaction management.
+**PGK Wallet** is a Telegram-based cryptocurrency wallet system designed to provide a simple, modular, extensible, and **Self-Hosted** infrastructure for wallet management and cryptocurrency payments.
 
-The project follows a **Self-Hosted** architecture, allowing users to deploy and operate their own independent instance.
+The project allows developers to obtain the source code, configure their own environment, and deploy an independent PGK Wallet instance on their own server or computer.
 
-### Features
+> ⚠️ PGK Wallet is a self-hosted software project. Before using real assets, thoroughly review and test the wallet implementation, blockchain integration, private-key handling, and security configuration.
 
-* 💼 Wallet creation and management
+---
+
+## ✨ Core Features
+
+### 👤 User System
+
+* 👤 User management
+* 🆔 Telegram ID integration
+* 💼 Wallet management
 * 💰 Balance tracking
-* 📥 Receive
-* 📤 Send
-* 🔗 Wallet addresses
-* 💳 Payments
-* 🧾 Invoices
-* 📊 Transaction history
+* 📊 Activity tracking
 * 🔔 Notifications
-* 👑 Admin dashboard
-* 🗄 Database
-* 🔐 Security-focused architecture
-* 🌐 Extensible multilingual architecture
+
+---
+
+## 💼 Wallet
+
+The **Wallet** is the core component of PGK Wallet.
+
+```text
+                 💼 WALLET
+                    │
+       ┌────────────┼────────────┐
+       ▼            ▼            ▼
+    💰 Balance    📥 Receive    📤 Send
+       │            │            │
+       └────────────┼────────────┘
+                    ▼
+              📊 Transactions
+```
+
+### 💰 Balance
+
+Users can view their wallet balance.
+
+### 📥 Receive
+
+Users can access the information required to receive assets into their wallet.
+
+### 📤 Send
+
+The system can manage the asset-sending workflow. Actual transaction execution depends on the configured blockchain, asset, and network.
+
+### 📊 Transactions
+
+Wallet-related transactions can be tracked and managed.
+
+---
+
+## 💳 Payment System
+
+The payment system is designed around a structured payment flow.
+
+```text
+👤 Customer
+      │
+      ▼
+🤖 Telegram Bot
+      │
+      ▼
+🧾 Create Invoice
+      │
+      ▼
+💳 Payment Request
+      │
+      ▼
+💰 Blockchain Transaction
+      │
+      ▼
+🔎 Verification
+      │
+      ▼
+✅ Payment Confirmed
+      │
+      ▼
+🔔 Notification
+```
+
+Potential use cases include:
+
+* Online products
+* Digital services
+* Donations
+* Telegram-based payments
+* Business payment systems
+
+---
+
+## 🧾 Invoice System
+
+Invoices provide a structured way to request a specific payment.
+
+```text
+┌─────────────────────────────┐
+│        🧾 INVOICE           │
+├─────────────────────────────┤
+│ Amount:      25 USDT        │
+│ Status:      Pending        │
+│ Network:     Selected       │
+│ Payment:     Required       │
+└─────────────────────────────┘
+```
+
+After payment, the system can verify and update the invoice status.
+
+---
+
+## 👑 Admin Panel
+
+The project includes an administrative architecture for managing an instance.
+
+```text
+👑 ADMIN PANEL
+
+├── 👥 Users
+├── 💼 Wallets
+├── 💳 Payments
+├── 🧾 Invoices
+├── 📊 Statistics
+├── 🔔 Notifications
+├── 🗄 Database
+└── ⚙️ Settings
+```
+
+---
+
+## 🔔 Notifications
+
+Important wallet and payment events can be communicated through Telegram notifications.
+
+Example:
+
+```text
+💰 Payment Received
+
+Amount: 25 USDT
+Status: Confirmed ✅
+
+Transaction:
+xxxxxxxxxxxxxxxx
+```
+
+---
+
+## 🗄 Database
+
+The database can manage core application data including:
+
+* Users
+* Wallets
+* Payments
+* Invoices
+* Transactions
+* Settings
+
+---
+
+## 🔐 Security
+
+Security is a critical part of any cryptocurrency wallet system.
+
+Never commit sensitive credentials to a public repository.
+
+### ❌ Never publish:
+
+```text
+BOT_TOKEN
+PRIVATE_KEY
+SEED_PHRASE
+MNEMONIC
+API_KEY
+DATABASE_PASSWORD
+ADMIN_SECRET
+```
+
+Use environment variables or an appropriate secret-management solution.
+
+```env
+BOT_TOKEN=YOUR_BOT_TOKEN
+ADMIN_ID=YOUR_TELEGRAM_ID
+DATABASE_URL=YOUR_DATABASE_URL
+```
+
+---
+
+## 🏠 Self-Hosted
+
+PGK Wallet is designed so users can operate independent instances.
+
+```text
+                    PGK WALLET
+                        │
+          ┌─────────────┼─────────────┐
+          ▼             ▼             ▼
+       Server A      Server B      Server C
+          │             │             │
+        Bot A         Bot B         Bot C
+          │             │             │
+       Database A   Database B   Database C
+```
+
+---
+
+## 🧩 Architecture
+
+```text
+                    ┌──────────────┐
+                    │   Telegram   │
+                    │     Bot      │
+                    └──────┬───────┘
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │   Handlers   │
+                    └──────┬───────┘
+                           │
+             ┌─────────────┼─────────────┐
+             ▼             ▼             ▼
+       ┌──────────┐  ┌──────────┐  ┌──────────┐
+       │  Wallet  │  │ Payment  │  │ Invoice  │
+       │ Service  │  │ Service  │  │ Service  │
+       └────┬─────┘  └────┬─────┘  └────┬─────┘
+            │             │             │
+            └─────────────┼─────────────┘
+                          ▼
+                   ┌──────────────┐
+                   │   Database   │
+                   └──────────────┘
+```
+
+---
+
+## 🚀 Installation
+
+```bash
+git clone https://github.com/YOUR_USERNAME/PGK-Wallet.git
+cd PGK-Wallet
+pip install -r requirements.txt
+```
+
+Configure your environment:
+
+```env
+BOT_TOKEN=YOUR_BOT_TOKEN
+ADMIN_ID=YOUR_TELEGRAM_ID
+DATABASE_URL=YOUR_DATABASE_URL
+```
+
+Run:
+
+```bash
+python main.py
+```
+
+---
+
+## 🗺 Roadmap
+
+* [ ] Multi-Currency Wallet
+* [ ] Multi-Network Support
+* [ ] QR Payments
+* [ ] Payment Links
+* [ ] Advanced Invoice System
+* [ ] Advanced Admin Panel
+* [ ] Blockchain Monitoring
+* [ ] Analytics
+* [ ] Docker Deployment
+* [ ] Web Dashboard
+* [ ] Public API
+* [ ] More Languages
+
+---
+
+[⬆ Back to language selection](#-select-your-language)
 
 ---
 
 # 🇷🇺 Русский
 
-## Что такое PGK Wallet?
+## 💜 Что такое PGK Wallet?
 
-PGK Wallet — это Telegram-бот криптовалютного кошелька, предназначенный для управления кошельками, получения и отправки активов, создания платежей, счетов и отслеживания транзакций.
+**PGK Wallet** — это криптовалютный кошелёк в формате Telegram-бота, созданный как простая, модульная, расширяемая и **Self-Hosted** система для управления кошельками и криптовалютными платежами.
 
-Проект использует архитектуру **Self-Hosted**, поэтому каждый пользователь может самостоятельно развернуть собственный экземпляр системы.
+Разработчик может получить исходный код, настроить собственную конфигурацию и запустить независимый экземпляр PGK Wallet на своём сервере или компьютере.
 
-### Возможности
+> ⚠️ Перед использованием реальных активов необходимо тщательно проверить код кошелька, работу с блокчейном, приватными ключами и настройки безопасности.
 
-* 💼 Создание и управление кошельком
-* 💰 Просмотр баланса
-* 📥 Получение средств
-* 📤 Отправка средств
-* 🔗 Адрес кошелька
-* 💳 Платежи
-* 🧾 Счета / Invoice
-* 📊 История транзакций
+---
+
+## ✨ Основные возможности
+
+### 👤 Пользователи
+
+* 👤 Управление пользователями
+* 🆔 Telegram ID
+* 💼 Управление кошельком
+* 💰 Баланс
+* 📊 История активности
 * 🔔 Уведомления
-* 👑 Панель администратора
-* 🗄 База данных
-* 🔐 Безопасная архитектура
-* 🌐 Поддержка расширения на несколько языков и сетей
+
+---
+
+## 💼 Кошелёк
+
+**Wallet** является основной частью системы.
+
+```text
+                 💼 WALLET
+                    │
+       ┌────────────┼────────────┐
+       ▼            ▼            ▼
+    💰 Баланс    📥 Получить   📤 Отправить
+       │            │            │
+       └────────────┼────────────┘
+                    ▼
+              📊 Транзакции
+```
+
+Кошелёк предназначен для управления балансом, получения и отправки активов и отслеживания операций.
+
+---
+
+## 💳 Платежная система
+
+```text
+👤 Клиент
+    │
+    ▼
+🤖 Telegram Bot
+    │
+    ▼
+🧾 Invoice
+    │
+    ▼
+💳 Запрос платежа
+    │
+    ▼
+💰 Blockchain
+    │
+    ▼
+🔎 Проверка
+    │
+    ▼
+✅ Подтверждение
+    │
+    ▼
+🔔 Уведомление
+```
+
+Система может использоваться для онлайн-сервисов, товаров, пожертвований и других платежных сценариев.
+
+---
+
+## 🧾 Invoice
+
+Invoice позволяет создавать структурированные запросы на оплату.
+
+```text
+┌─────────────────────────────┐
+│        🧾 INVOICE           │
+├─────────────────────────────┤
+│ Amount:      25 USDT        │
+│ Status:      Pending        │
+│ Network:     Selected       │
+└─────────────────────────────┘
+```
+
+---
+
+## 👑 Панель администратора
+
+```text
+👑 ADMIN PANEL
+
+├── 👥 Users
+├── 💼 Wallets
+├── 💳 Payments
+├── 🧾 Invoices
+├── 📊 Statistics
+├── 🔔 Notifications
+├── 🗄 Database
+└── ⚙️ Settings
+```
+
+---
+
+## 🔐 Безопасность
+
+Никогда не публикуйте:
+
+```text
+BOT_TOKEN
+PRIVATE_KEY
+SEED_PHRASE
+MNEMONIC
+API_KEY
+DATABASE_PASSWORD
+ADMIN_SECRET
+```
+
+Используйте переменные окружения или систему управления секретами.
+
+---
+
+## 🏠 Self-Hosted
+
+Каждый пользователь может развернуть собственный экземпляр:
+
+```text
+PGK Wallet
+    │
+    ├── Server A → Bot A → Database A
+    │
+    ├── Server B → Bot B → Database B
+    │
+    └── Server C → Bot C → Database C
+```
+
+---
+
+## 🚀 Установка
+
+```bash
+git clone https://github.com/YOUR_USERNAME/PGK-Wallet.git
+cd PGK-Wallet
+pip install -r requirements.txt
+python main.py
+```
+
+---
+
+## 🗺 План развития
+
+* [ ] Несколько валют
+* [ ] Несколько сетей
+* [ ] QR-платежи
+* [ ] Payment Links
+* [ ] Расширенная система Invoice
+* [ ] Расширенная админ-панель
+* [ ] Мониторинг блокчейна
+* [ ] Аналитика
+* [ ] Docker
+* [ ] Web Dashboard
+* [ ] Public API
+* [ ] Дополнительные языки
+
+---
+
+[⬆ Вернуться к выбору языка](#-select-your-language)
 
 ---
 
 # 🇨🇳 中文
 
-## 什么是 PGK Wallet？
+## 💜 什么是 PGK Wallet？
 
-PGK Wallet 是一个基于 Telegram 的加密货币钱包机器人，用于管理钱包、接收和发送资产、创建支付请求、Invoice 以及管理交易记录。
+**PGK Wallet** 是一个基于 **Telegram Bot** 的加密货币钱包系统，旨在提供一个简单、模块化、可扩展并支持 **Self-Hosted（自主部署）** 的钱包和加密货币支付基础设施。
 
-项目采用 **Self-Hosted（自主部署）** 架构，用户可以下载源代码并独立部署属于自己的实例。
+开发者可以获取源代码，配置自己的环境，并在自己的服务器或计算机上运行独立的 PGK Wallet 实例。
 
-### 功能
-
-* 💼 创建和管理钱包
-* 💰 查看余额
-* 📥 接收资产
-* 📤 发送资产
-* 🔗 钱包地址
-* 💳 支付系统
-* 🧾 Invoice
-* 📊 交易记录
-* 🔔 通知系统
-* 👑 管理员面板
-* 🗄 数据库
-* 🔐 安全架构
-* 🌐 可扩展的多语言及多网络支持
+> ⚠️ 在使用真实资产之前，请完整检查并测试钱包代码、区块链连接、私钥管理以及安全配置。
 
 ---
 
+## ✨ 主要功能
+
+### 👤 用户系统
+
+* 👤 用户管理
+* 🆔 Telegram ID
+* 💼 钱包管理
+* 💰 余额查看
+* 📊 活动记录
+* 🔔 通知
+
+---
+
+## 💼 Wallet 钱包
+
+**Wallet** 是 PGK Wallet 的核心部分。
+
+```text
+                 💼 WALLET
+                    │
+       ┌────────────┼────────────┐
+       ▼            ▼            ▼
+    💰 余额       📥 接收       📤 发送
+       │            │            │
+       └────────────┼────────────┘
+                    ▼
+              📊 交易记录
+```
+
+钱包用于管理余额、接收和发送资产以及跟踪相关交易。
+
+---
+
+## 💳 支付系统
+
+```text
+👤 客户
+   │
+   ▼
+🤖 Telegram Bot
+   │
+   ▼
+🧾 创建 Invoice
+   │
+   ▼
+💳 支付请求
+   │
+   ▼
+💰 区块链交易
+   │
+   ▼
+🔎 交易验证
+   │
+   ▼
+✅ 支付确认
+   │
+   ▼
+🔔 通知
+```
+
+该系统可以用于在线服务、数字产品、Donation 以及其他支付场景。
+
+---
+
+## 🧾 Invoice
+
+Invoice 用于创建结构化的支付请求。
+
+```text
+┌─────────────────────────────┐
+│        🧾 INVOICE           │
+├─────────────────────────────┤
+│ Amount:      25 USDT        │
+│ Status:      Pending        │
+│ Network:     Selected       │
+└─────────────────────────────┘
+```
+
+---
+
+## 👑 管理员面板
+
+```text
+👑 ADMIN PANEL
+
+├── 👥 Users
+├── 💼 Wallets
+├── 💳 Payments
+├── 🧾 Invoices
+├── 📊 Statistics
+├── 🔔 Notifications
+├── 🗄 Database
+└── ⚙️ Settings
+```
+
+---
+
+## 🔐 安全
+
+请勿将以下敏感信息提交到公开 GitHub 仓库：
+
+```text
+BOT_TOKEN
+PRIVATE_KEY
+SEED_PHRASE
+MNEMONIC
+API_KEY
+DATABASE_PASSWORD
+ADMIN_SECRET
+```
+
+建议使用 Environment Variables 或专业的 Secret Management 系统管理敏感信息。
+
+---
+
+## 🏠 Self-Hosted 自主部署
+
+每个用户都可以运行自己的 PGK Wallet 实例：
+
+```text
+PGK Wallet
+    │
+    ├── Server A → Bot A → Database A
+    │
+    ├── Server B → Bot B → Database B
+    │
+    └── Server C → Bot C → Database C
+```
+
+---
+
+## 🚀 安装
+
+```bash
+git clone https://github.com/YOUR_USERNAME/PGK-Wallet.git
+cd PGK-Wallet
+pip install -r requirements.txt
+python main.py
+```
+
+配置环境变量：
+
+```env
+BOT_TOKEN=YOUR_BOT_TOKEN
+ADMIN_ID=YOUR_TELEGRAM_ID
+DATABASE_URL=YOUR_DATABASE_URL
+```
+
+然后运行：
+
+```bash
+python main.py
+```
+
+---
+
+## 🗺 开发路线图
+
+* [ ] 多币种钱包
+* [ ] 多网络支持
+* [ ] QR 支付
+* [ ] Payment Links
+* [ ] 高级 Invoice 系统
+* [ ] 高级管理员面板
+* [ ] 区块链监控
+* [ ] 数据分析
+* [ ] Docker 部署
+* [ ] Web Dashboard
+* [ ] Public API
+* [ ] 更多语言
+
+---
+
+[⬆ 返回语言选择](#-select-your-language)
+
+---
+
+<div align="center">
+
 # 💜 PGK Wallet
 
-**Private • Self-Hosted • Telegram-Based • Extensible**
+### Private • Self-Hosted • Telegram-Based
 
-Built for developers who want to run their own Telegram-based cryptocurrency wallet infrastructure.
+**Built for developers who want to run their own wallet infrastructure.**
 
-⭐ Star the project if you find it useful.
+⭐ If you find PGK Wallet useful, consider giving the repository a Star.
 
-🐛 Found a bug? Open an Issue.
-
-💡 Have an idea? Start a Discussion or Pull Request.
+</div>
